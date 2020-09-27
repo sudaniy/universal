@@ -1,0 +1,81 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+
+   <div id="banner-area" class="banner-area" style="background-image:url({% static 'website/images/banner/banner1.jpg' %})">
+      <div class="banner-text">
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12">
+                  <div class="banner-heading">
+                     <h1 class="banner-title">News</h1>
+                     <ol class="breadcrumb">
+                        <li><a href="{% url 'website-home'%}">Home</a></li>
+                        <li>News</li>
+                     </ol>
+                  </div>
+               </div><!-- Col end -->
+            </div><!-- Row end -->
+         </div><!-- Container end -->
+      </div><!-- Banner text end -->
+   </div><!-- Banner area end --> 
+
+
+   <section id="main-container" class="main-container">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+					<div class="sidebar sidebar-left">
+
+
+						<div class="widget">
+							<h3 class="widget-title">Categories</h3>
+							<ul class="arrow nav nav-tabs nav-stacked">
+		                  <li><a href="#">Construction</a></li>
+		                  <li><a href="#">Commercial</a></li>
+		                  <li><a href="#">Building</a></li>
+		                  <li><a href="#">Safety</a></li>
+		                  <li><a href="#">Structure</a></li>
+		              	</ul>
+						</div><!-- Categories end -->
+					</div><!-- Sidebar end -->
+				</div><!-- Sidebar Col end -->
+
+
+				
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+
+					<div class="post">
+						<div class="post-media post-image">
+							<img src="{{object.image.url}}" class="img-responsive" alt="">
+						</div>
+
+						<div class="post-body">
+							<div class="entry-header">
+					 			<div class="post-meta">
+   								<span class="post-meta-date"><i class="fa fa-calendar"></i>{{object.date_posted|date:"D d M Y" }}</span>
+								</div>
+								<h2 class="entry-title">
+					 				{{object.title}}
+					 			</h2>
+							</div><!-- header end -->
+
+							<div class="entry-content">
+								<p>{{object.content}}</p>
+							</div>
+
+
+						</div><!-- post-body end -->
+					</div><!-- 1st post end -->
+	          	</div>
+				
+
+				</div><!-- Content Col end -->
+
+			</div><!-- Main row end -->
+
+		</div><!-- Container end -->
+	</section><!-- Main container end -->
+{% endblock content %}

@@ -1,0 +1,260 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+
+   <div id="banner-area" class="banner-area" style="background-image:url({% static 'website/images/banner/banner1.jpg' %})">
+      <div class="banner-text">
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12">
+                  <div class="banner-heading">
+                     <h1 class="banner-title">About Us</h1>
+                     <ol class="breadcrumb">
+                        <li>Home</li>
+                        <li>Company</li>
+                        <li><a href="#">About Us</a></li>
+                     </ol>
+                  </div>
+               </div><!-- Col end -->
+            </div><!-- Row end -->
+         </div><!-- Container end -->
+      </div><!-- Banner text end -->
+   </div><!-- Banner area end --> 
+
+
+		<section id="ts-features" class="ts-features">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<div class="ts-intro">
+							<h2 class="into-title">About Us</h2>
+							<h3 class="into-sub-title">History of ABUCONS</h3>
+							{% for i in abouts %}
+								<p style="text-align:justify">{{ i.who_we_are }}</p>
+							{% endfor %}
+						</div><!-- Intro box end -->
+
+						<div class="gap-20"></div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-trophy"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">We've Repution for Excellence</h3>
+									</div>
+								</div><!-- Service 1 end -->
+							</div><!-- col end -->
+
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-sliders"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">We Build Partnerships</h3>
+									</div>
+								</div><!-- Service 2 end -->
+							</div><!-- col end -->
+						</div><!-- Content row 1 end -->
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-thumbs-up"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">Guided by Commitment</h3>
+									</div>
+								</div><!-- Service 1 end -->
+							</div><!-- col end -->
+
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-users"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">A Team of Professionals</h3>
+									</div>
+								</div><!-- Service 2 end -->
+							</div><!-- col end -->
+						</div><!-- Content row 1 end -->
+					</div><!-- Col end -->
+
+					<div class="col-md-6 col-xs-12">
+						<h3 class="into-sub-title">Our Mission</h3>
+						{% for i in abouts %}
+							<p>{{i.mission}}</p>
+						{% endfor %}
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Clients</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.client}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!--/ Panel 1 end-->
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo"> Industry</a>
+									</h4>
+								</div>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.industry}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!--/ Panel 2 end-->
+
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseThree">
+											Community</a>
+									</h4>
+								</div>
+								<div id="collapseThree" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.community}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+						<!--/ Panel 3 end-->
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFour">
+											Employee</a>
+									</h4>
+								</div>
+								<div id="collapseFour" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.employee}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+						<!--/ Panel 4 end-->
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFive">
+											Partner</a>
+									</h4>
+								</div>
+								<div id="collapseFive" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.partner}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!--/ Panel 3 end-->
+
+						</div>
+						<!--/ Accordion end -->
+
+					</div><!-- Col end -->
+				</div><!-- Row end -->
+			</div><!-- Container end -->
+		</section><!-- Feature are end -->
+
+
+   <section id="ts-team" class="ts-team">
+      <div class="container">
+         <div class="row text-center">
+            <h2 class="section-title">Our Team</h2>
+            <h3 class="section-sub-title">Directors</h3>
+         </div><!--/ Title row end -->
+
+         <div class="row">
+            <div id="team-slide" class="owl-carousel owl-theme team-slide">
+				{% for i in our_team %}	
+					<div class="item">
+						
+						<div class="ts-team-wrapper">
+							<div class="team-img-wrapper">
+								<img alt="" src="{{i.image.url}}" class="img-responsive">
+							</div>
+							<div class="ts-team-content">
+								<h3 class="ts-name">{{i.name}}</h3>
+								<p class="ts-designation">{{i.designation}}</p>
+								<div class="team-social-icons">
+								<a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+								<a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+								<a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+								<a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+								</div><!--/ social-icons-->
+							</div>
+						</div><!--/ Team wrapper end -->
+						
+					</div><!-- Team 1 end -->
+				{% endfor %}
+            </div><!-- Team slide end -->
+
+
+
+         </div><!--/ Content row end -->
+      </div><!--/ Container end -->
+   </section><!--/ Team end -->
+
+   <section id="ts-staff">
+      <div class="container">
+
+         <div class="row text-center">
+            <h3 class="section-sub-title">Staff</h3>
+         </div><!--/ Title row end -->
+
+         <div class="row">
+			{% for i in staffs %}
+				<div class="col-md-3" style="padding-bottom:10px;">
+					<div class="item">
+						<div class="ts-team-wrapper">
+							<div class="staff-img-wrapper">
+								<img alt="" src="{{i.image.url}}" style="width:263px; height:320px;"class="img-responsive">
+							</div>
+							<div class="ts-team-content">
+								<h3 class="ts-name">{{i.name}}</h3>
+								<p class="ts-designation">{{i.designation}}</p>
+								<div class="team-social-icons">
+								<a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+								<a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+								<a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+								<a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+								</div><!--/ social-icons-->
+							</div>
+						</div><!--/ Team wrapper end -->
+					</div><!-- Team 1 end -->
+				</div>
+			{% endfor %}
+		</div>
+      </div><!--/ Container end -->
+   </section><!--/ Team end -->
+
+
+{% endblock content %}
+

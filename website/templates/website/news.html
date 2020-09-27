@@ -1,0 +1,58 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+
+   <div id="banner-area" class="banner-area" style="background-image:url({% static 'website/images/banner/banner1.jpg' %})">
+      <div class="banner-text">
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12">
+                  <div class="banner-heading">
+                     <h1 class="banner-title">News</h1>
+                     <ol class="breadcrumb">
+                        <li><a href="{% url 'website-home'%}">Home</a></li>
+                        <li>News</li>
+                     </ol>
+                  </div>
+               </div><!-- Col end -->
+            </div><!-- Row end -->
+         </div><!-- Container end -->
+      </div><!-- Banner text end -->
+   </div><!-- Banner area end --> 
+
+
+   <section id="main-container" class="main-container">
+		<div class="container">
+			<div class="row">
+				{% for i in news %}
+					<div class="col-md-6">
+						<div class="post">
+							<div class="post-media post-image">
+								<img src="{{i.image.url}}" style="width:500px; height:300px;" class="img-responsive" alt="">
+							</div>
+
+							<div class="post-body">
+								<div class="entry-header">
+									<div class="post-meta">
+									<span class="post-meta-date"><i class="fa fa-calendar"></i>{{i.date_posted|date:"D d M Y" }}</span>
+									</div>
+									<h2 class="entry-title">
+										<a href="{% url 'news-details' i.id %}">{{i.title}}</a>
+									</h2>
+								</div><!-- header end -->
+
+								<div class="entry-content">
+									<p>{{i.content|slice:250}}...</p>
+								</div>
+
+								<div class="post-footer">
+									<a href="{% url 'news-details' i.id %}" class="btn btn-primary">Continue Reading</a>
+								</div>
+							</div><!-- post-body end -->
+						</div><!-- 1st post end -->
+					</div>
+				{% endfor %}
+			</div><!-- Content Col end -->
+		</div><!-- Container end -->
+	</section><!-- Main container end -->
+{% endblock content %}

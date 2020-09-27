@@ -1,0 +1,49 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+
+   <div id="banner-area" class="banner-area" style="background-image:url({% static 'website/images/banner/banner2.jpg' %})">
+      <div class="banner-text">
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12">
+                  <div class="banner-heading">
+                     <h1 class="banner-title">Services</h1>
+                     <ol class="breadcrumb">
+                        <li>Home</li>
+                        <li>Services</li>
+                        <li><a href="#">Services All</a></li>
+                     </ol>
+                  </div>
+               </div><!-- Col end -->
+            </div><!-- Row end -->
+         </div><!-- Container end -->
+      </div><!-- Banner text end -->
+   </div><!-- Banner area end --> 
+
+<section id="ts-service-area" class="ts-service-area">
+			<div class="container">
+				<div class="row text-center">
+					<h2 class="section-title">We Are Specialists In</h2>
+					<h3 class="section-sub-title">What We Do</h3>
+				</div>
+				<div class="row">
+				{% for i in services %}
+					<div class="col-md-6">
+						<div class="ts-service-box">
+							<div class="ts-service-box-img pull-left">
+								<img src="{{i.image.url}}" alt="" />
+							</div>
+							<div class="ts-service-box-info">
+								<h3 class="service-box-title"><a href="#">{{ i.title}}</a></h3>
+								<p style="text-align:justify">{{i.content}}</p>
+							</div>
+						</div><!-- Service 1 end -->
+					</div>
+				{% endfor %}
+				</div><!-- Content row end -->
+		</div>
+			<!--/ Container end -->
+</section><!-- Service end -->
+
+{% endblock content %}

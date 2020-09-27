@@ -1,0 +1,428 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+
+		<!-- Carousel -->
+		<div id="main-slide" class="carousel slide" data-ride="carousel">
+
+			<!-- Indicators -->
+			<ol class="carousel-indicators visible-lg visible-md">
+				<li data-target="#main-slide" data-slide-to="0" class="active"></li>
+				<li data-target="#main-slide" data-slide-to="1"></li>
+				<li data-target="#main-slide" data-slide-to="2"></li>
+			</ol>
+			<!--/ Indicators end-->
+
+			<!-- Carousel inner -->
+			<div class="carousel-inner">
+
+				{% for i in slides %}
+				{% if forloop.counter == 1%}
+				<div class="item active">
+				{% else %}
+				<div class="item">
+				{% endif %}
+					<img src="{{ i.image.url }}" alt="Image">
+					<div class="slider-content">
+						<div class="col-md-12 text-center">
+							<h6 class="slide-title animated4">{{i.title}}</h6>
+							<h3 class="slide-sub-title animated3">{{i.content}}</h3>
+							<p>
+								<a href="{% url 'website-service'%}" class="slider btn btn-primary">Our Services</a>
+								<a href="{% url 'website-contact'%}" class="slider btn btn-primary border">Contact Now</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+				<!--/ Carousel item 1 end -->
+
+			</div><!-- Carousel inner end-->
+
+			<!-- Controllers -->
+			<a class="left carousel-control" href="#main-slide" data-slide="prev">
+				<span><i class="fa fa-angle-left"></i></span>
+			</a>
+			<a class="right carousel-control" href="#main-slide" data-slide="next">
+				<span><i class="fa fa-angle-right"></i></span>
+			</a>
+		</div>
+		<!--/ Carousel end -->
+
+		<section class="call-to-action-box no-padding">
+			<div class="container">
+				<div class="action-style-box">
+					<div class="row">
+						<div class="col-md-10">
+							<div class="call-to-action-text">
+								<h3 class="action-title">We understand your needs on construction</h3>
+							</div>
+						</div><!-- Col end -->
+						<div class="col-md-2">
+							<div class="call-to-action-btn">
+								<a class="btn btn-dark" href="#">Request Quote</a>
+							</div>
+						</div><!-- col end -->
+					</div><!-- row end -->
+				</div><!-- Action style box -->
+			</div><!-- Container end -->
+		</section><!-- Action end -->
+
+		<section id="ts-features" class="ts-features">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-xs-12">
+						<div class="ts-intro">
+							<h2 class="into-title">About Us</h2>
+							<h3 class="into-sub-title">We deliver landmark projects</h3>
+							{% for i in abouts %}
+								<p style="text-align:justify">{{ i.who_we_are }}</p>
+							{% endfor %}
+						</div><!-- Intro box end -->
+
+						<div class="gap-20"></div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-trophy"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">We've Repution for Excellence</h3>
+									</div>
+								</div><!-- Service 1 end -->
+							</div><!-- col end -->
+
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-sliders"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">We Build Partnerships</h3>
+									</div>
+								</div><!-- Service 2 end -->
+							</div><!-- col end -->
+						</div><!-- Content row 1 end -->
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-thumbs-up"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">Guided by Commitment</h3>
+									</div>
+								</div><!-- Service 1 end -->
+							</div><!-- col end -->
+
+							<div class="col-md-6">
+								<div class="ts-service-box">
+									<span class="ts-service-icon">
+										<i class="fa fa-users"></i>
+									</span>
+									<div class="ts-service-box-content">
+										<h3 class="service-box-title">A Team of Professionals</h3>
+									</div>
+								</div><!-- Service 2 end -->
+							</div><!-- col end -->
+						</div><!-- Content row 1 end -->
+					</div><!-- Col end -->
+
+					<div class="col-md-6 col-xs-12">
+						<h3 class="into-sub-title">Our Mission</h3>
+						{% for i in abouts %}
+							<p>{{i.mission}}</p>
+						{% endfor %}
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Clients</a>
+									</h4>
+								</div>
+								<div id="collapseOne" class="panel-collapse collapse in">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.client}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!--/ Panel 1 end-->
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo"> Industry</a>
+									</h4>
+								</div>
+								<div id="collapseTwo" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.industry}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!--/ Panel 2 end-->
+
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseThree">
+											Community</a>
+									</h4>
+								</div>
+								<div id="collapseThree" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.community}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+						<!--/ Panel 3 end-->
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFour">
+											Employee</a>
+									</h4>
+								</div>
+								<div id="collapseFour" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.employee}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+						<!--/ Panel 4 end-->
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+										<a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFive">
+											Partner</a>
+									</h4>
+								</div>
+								<div id="collapseFive" class="panel-collapse collapse">
+									<div class="panel-body">
+									{% for i in abouts %}
+										<p>{{i.partner}}</p>
+									{% endfor %}
+									</div>
+								</div>
+							</div>
+							<!--/ Panel 3 end-->
+
+						</div>
+						<!--/ Accordion end -->
+
+					</div><!-- Col end -->
+				</div><!-- Row end -->
+			</div><!-- Container end -->
+			<div class="general-btn text-center">
+				<a class="btn btn-primary" href="{% url 'website-about'%}">More About Us</a>
+			</div>
+		</section><!-- Feature are end -->
+
+		<section id="ts-service-area" class="ts-service-area">
+			<div class="container">
+				<div class="row text-center">
+					<h2 class="section-title">We Are Specialists In</h2>
+					<h3 class="section-sub-title">What We Do</h3>
+				</div>
+				<div class="row">
+				{% for i in services %}
+					<div class="col-md-6">
+						<div class="ts-service-box">
+							<div class="ts-service-box-img pull-left">
+								<img src="{{i.image.url}}" alt="" />
+							</div>
+							<div class="ts-service-box-info">
+								<h3 class="service-box-title"><a href="#">{{ i.title}}</a></h3>
+								<p style="text-align:justify">{{i.content|slice:150}}....</p>
+							</div>
+						</div><!-- Service 1 end -->
+					</div>
+				{% endfor %}
+				</div><!-- Content row end -->
+			
+		</div>
+		<div class="general-btn text-center">
+			<a class="btn btn-primary" href="{% url 'website-service'%}">See All Services</a>
+		</div>
+			<!--/ Container end -->
+		</section><!-- Service end -->
+
+		<section id="project-area" class="project-area solid-bg">
+			<div class="container">
+				<div class="row text-center">
+					<h2 class="section-title">Work of Excellence</h2>
+					<h3 class="section-sub-title">Recent Projects</h3>
+				</div>
+
+
+					<div id="isotope" class="isotope">
+					{% for i in gals %}
+						<div class="col-md-4 col-sm-6 col-xs-12 commercial isotope-item">
+							<div class="isotope-img-container">
+								<a class="gallery-popup" href="{{ i.image.url }}" title="{{i.caption}}">
+									<img class="img-responsive" src="{{ i.image.url }}" alt="">
+									<span class="gallery-icon"><i class="fa fa-plus"></i></span>
+								</a>
+								<div class="project-item-info">
+									<div class="project-item-info-content">
+										<h4 class="project-item-title">
+											<a href="#">{{i.caption}}</a>
+										</h4>
+									</div>
+								</div>
+							</div>
+						</div><!-- Isotope item 1 end -->
+					{% endfor %}
+					</div><!-- Isotop end -->
+
+					<div class="general-btn text-center">
+						<a class="btn btn-primary" href="{% url 'website-project'%}">View All Projects</a>
+					</div>
+
+				</div><!-- Content row end -->
+			</div>
+			<!--/ Container end -->
+		</section><!-- Project area end -->
+
+		<section class="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h3 style="text-align:center" class="column-title">Happy Clients</h3>
+
+						<div class="row all-clients">
+							<div class="col-sm-4">
+								<figure class="clients-logo">
+									<a href="#"><img class="img-responsive" src="{% static 'website/images/clients/client1.png' %}" alt="" /></a>
+								</figure>
+							</div><!-- Client 1 end -->
+
+							<div class="col-sm-4">
+								<figure class="clients-logo">
+									<a href="#"><img class="img-responsive" src="{% static 'website/images/clients/client2.png' %}" alt="" /></a>
+								</figure>
+							</div><!-- Client 2 end -->
+
+							<div class="col-sm-4">
+								<figure class="clients-logo">
+									<a href="#"><img class="img-responsive" src="{% static 'website/images/clients/client3.png' %}" alt="" /></a>
+								</figure>
+							</div><!-- Client 3 end -->
+
+							<div class="col-sm-4">
+								<figure class="clients-logo">
+									<a href="#"><img class="img-responsive" src="{% static 'website/images/clients/client4.png' %}" alt="" /></a>
+								</figure>
+							</div><!-- Client 4 end -->
+
+							<div class="col-sm-4">
+								<figure class="clients-logo">
+									<a href="#"><img class="img-responsive" src="{% static 'website/images/clients/client5.png' %}" alt="" /></a>
+								</figure>
+							</div><!-- Client 5 end -->
+
+							<div class="col-sm-4">
+								<figure class="clients-logo">
+									<a href="#"><img class="img-responsive" src="{% static 'website/images/clients/client6.png' %}" alt="" /></a>
+								</figure>
+							</div><!-- Client 6 end -->
+
+						</div><!-- Clients row end -->
+
+					</div><!-- Col end -->
+
+				</div>
+				<!--/ Content row end -->
+			</div>
+			<!--/ Container end -->
+		</section><!-- Content end -->
+
+		<section class="subscribe no-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-12 col-xs-12">
+						<div class="subscribe-call-to-acton">
+							<h3>Can We Help?</h3>
+							<h4>(+234) 80-800-478-23</h4>
+						</div>
+					</div><!-- Col end -->
+
+					<div class="col-md-8 col-sm-12 col-xs-12">
+						<div class="ts-newsletter">
+							<div class="newsletter-introtext">
+								<h4>Newsletter Sign-up</h4>
+								<p>Latest updates and news</p>
+							</div>
+
+							<div class="newsletter-form">
+								<form action="#" method="post">
+									<div class="form-group">
+										<input type="email" name="email" id="newsletter-form-email" class="form-control form-control-lg"
+											placeholder="Your Email Here" autocomplete="off">
+									</div>
+								</form>
+							</div>
+						</div><!-- Newsletter end -->
+					</div><!-- Col end -->
+
+				</div><!-- Content row end -->
+			</div>
+			<!--/ Container end -->
+		</section>
+		<!--/ News end -->
+
+		<section id="news" class="news">
+			<div class="container">
+				<div class="row text-center">
+					<h2 class="section-title">News & Updates</h2>
+					<h3 class="section-sub-title">Latest News</h3>
+				</div>
+				<!--/ Title row end -->
+				<div class="row">
+				{% for i in news %}
+					<div class="col-md-4 col-xs-12">
+						<div class="latest-post">
+							<div class="latest-post-media">
+								<a href="news-single.html" class="latest-post-img">
+									<img class="img-responsive" src="{{ i.image.url }}" alt="img">
+								</a>
+							</div>
+							<div class="post-body">
+								<h4 class="post-title">
+									<a href="news-single.html">{{i.title}}</a>
+								</h4>
+								<div class="latest-post-meta">
+									<span class="post-item-date">
+										<i class="fa fa-clock-o"></i> {{i.date_posted|date:"D d M Y" }}
+									</span>
+								</div>
+							</div>
+						</div><!-- Latest post end -->
+					</div><!-- 1st post col end -->
+				{% endfor %}
+				</div>
+				<!--/ Content row end -->
+
+				<div class="general-btn text-center">
+					<a class="btn btn-primary" href="news-left-sidebar.html">See All Posts</a>
+				</div>
+
+			</div>
+			<!--/ Container end -->
+		</section>
+		<!--/ News end -->
+{% endblock content %}

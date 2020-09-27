@@ -1,0 +1,56 @@
+{% extends "website/base.html" %}
+{% load static %}
+{% block content %}
+   <div id="banner-area" class="banner-area" style="background-image:url({% static 'website/images/banner/banner2.jpg' %})">
+      <div class="banner-text">
+         <div class="container">
+            <div class="row">
+               <div class="col-xs-12">
+                  <div class="banner-heading">
+                     <h1 class="banner-title">Projects</h1>
+                     <ol class="breadcrumb">
+                        <li>Home</li>
+                        <li>Projects</li>
+                        <li><a href="#">Projects All</a></li>
+                     </ol>
+                  </div>
+               </div><!-- Col end -->
+            </div><!-- Row end -->
+         </div><!-- Container end -->
+      </div><!-- Banner text end -->
+   </div><!-- Banner area end --> 
+
+
+	<section id="project-area" class="project-area solid-bg">
+			<div class="container">
+				<div class="row text-center">
+					<h2 class="section-title">Work of Excellence</h2>
+					<h3 class="section-sub-title">Recent Projects</h3>
+				</div>
+
+
+					<div id="isotope" class="isotope">
+					{% for i in gals %}
+						<div class="col-md-4 col-sm-6 col-xs-12 commercial isotope-item">
+							<div class="isotope-img-container">
+								<a class="gallery-popup" href="{{ i.image.url }}" title="{{i.caption}}">
+									<img class="img-responsive" src="{{ i.image.url }}" alt="">
+									<span class="gallery-icon"><i class="fa fa-plus"></i></span>
+								</a>
+								<div class="project-item-info">
+									<div class="project-item-info-content">
+										<h4 class="project-item-title">
+											<a href="#">{{i.caption}}</a>
+										</h4>
+									</div>
+								</div>
+							</div>
+						</div><!-- Isotope item 1 end -->
+					{% endfor %}
+					</div><!-- Isotop end -->
+				</div><!-- Content row end -->
+			</div>
+			<!--/ Container end -->
+		</section><!-- Project area end -->
+
+{% endblock content %}
